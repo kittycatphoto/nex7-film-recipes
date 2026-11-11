@@ -1,5 +1,7 @@
 /* Focused host tests for the 0x400c WB template/rewrite/allocation path. */
 #define NEXHOOK_HOST_TEST 1
+/* Keep the host mock out of the sanitizer runtime's dlsym interposition. */
+#define dlsym test_dlsym
 #include "recipe_hook.c"
 #include <stdio.h>
 #include <string.h>
@@ -41,6 +43,7 @@ void *dlsym(void *handle, const char *symbol)
     (void)symbol;
     return 0;
 }
+#undef dlsym
 
 static int fake_valloc(unsigned long mailbox, void **msg, unsigned long size, unsigned long wait)
 {
