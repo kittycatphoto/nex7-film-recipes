@@ -50,6 +50,8 @@ long test_sys3(long nr, long a, long b, long c)
     return nr == 20 ? 1 : 0;
 }
 
+/* Keep host mocks out of the sanitizer runtime's libc interposition. */
+#define dlsym test_dlsym
 void *dlsym(void *handle, const char *symbol)
 {
     (void)handle;
@@ -61,11 +63,18 @@ void *dlsym(void *handle, const char *symbol)
 }
 
 #define NEXHOOK_HOST_TEST 1
+#define open test_open
+#define open64 test_open64
+#define openat test_openat
 #define fopen test_fopen
 #define fopen64 test_fopen64
 #include "menu_rename.c"
+#undef open
+#undef open64
+#undef openat
 #undef fopen
 #undef fopen64
+#undef dlsym
 
 #define CHECK(x) do { if (!(x)) { \
     fprintf(stderr, "FAIL line %d: %s (path=%s)\n", __LINE__, #x, last_path); \
@@ -84,38 +93,38 @@ static void reset(void)
 int main(void)
 {
     reset();
-    CHECK(open("/tmp/other", 0) == 100);
+    CHECK(test_open("/tmp/other", 0) == 100);
     CHECK(!strcmp(last_path, "/tmp/other"));
 
     reset();
     stock_result = 42;
-    CHECK(open("/usr/share/app/string_english.uxc", 0) == 42);
+    CHECK(test_open("/usr/share/app/string_english.uxc", 0) == 42);
     CHECK(!strcmp(last_path, STOCK_BANK));
 
     reset();
     stock_result = 43;
-    CHECK(open64("share/app/string_english.uxc", 0) == 43);
+    CHECK(test_open64("share/app/string_english.uxc", 0) == 43);
     CHECK(!strcmp(last_path, STOCK_BANK));
 
     reset();
     stock_result = 44;
-    CHECK(open("./string_english.uxc", 0) == 44);
+    CHECK(test_open("./string_english.uxc", 0) == 44);
     CHECK(!strcmp(last_path, STOCK_BANK));
 
     reset();
     active = 0;
     stock_result = 44;
-    CHECK(open("/usr/share/app/string_english.uxc", 0) == 100);
+    CHECK(test_open("/usr/share/app/string_english.uxc", 0) == 100);
     CHECK(!strcmp(last_path, "/usr/share/app/string_english.uxc"));
 
     reset();
-    CHECK(open("/usr/share/app/string_english.uxc", O_CREAT, 0600) == 100);
+    CHECK(test_open("/usr/share/app/string_english.uxc", O_CREAT, 0600) == 100);
     CHECK(!strcmp(last_path, "/usr/share/app/string_english.uxc"));
     CHECK(last_flags == O_CREAT && last_mode == 0600);
 
     reset();
     stock_result = 45;
-    CHECK(open("/usr/share/app/string_english.uxc", O_CREAT, 0640) == 45);
+    CHECK(test_open("/usr/share/app/string_english.uxc", O_CREAT, 0640) == 45);
     CHECK(!strcmp(last_path, STOCK_BANK) && last_mode == 0640);
 
     reset();
