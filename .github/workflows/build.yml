@@ -1,0 +1,23 @@
+name: Test and package
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install build tools
+        run: sudo apt-get update && sudo apt-get install -y clang lld python3
+      - name: Run host tests
+        run: ./test.sh
+      - name: Build installer bundle
+        run: python3 scripts/package.py
+      - name: Upload installer bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: nex7-base-installer
+          path: docs/downloads/nex7-base-installer.zip

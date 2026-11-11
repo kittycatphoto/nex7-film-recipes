@@ -1,0 +1,9 @@
+# Stage A: load the recipe hook into ONE throwaway process. No boot files are touched.
+# Run with: --put=hook/nexhook-recipe.so:/tmp/nexhook-recipe.so
+# Inactive outside im.elf: must not touch config, crash guard, style state, or messages.
+ls -la /tmp/nexhook-recipe.so
+chmod 644 /tmp/nexhook-recipe.so
+LD_PRELOAD=/tmp/nexhook-recipe.so /bin/busybox true
+cat /setting/nexhook-recipe.log
+rm -f /tmp/nexhook-recipe.so
+ls -la /tmp

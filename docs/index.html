@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f1e9">
+  <meta name="description" content="A local, browser-based film recipe lookbook and configurator for the Sony NEX-7. Tune 12 Creative Style looks and build a custom installer without uploading anything.">
+  <title>NEX-7 Film Recipes — A lookbook for your camera</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="fflate.min.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="#top" aria-label="NEX-7 Film Recipes home">
+        <span class="brand-mark" aria-hidden="true"><span>N7</span></span>
+        <span class="brand-copy">Film Recipes<small>Sony NEX-7</small></span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="#recipes">Recipes</a>
+        <a href="#install">Install</a>
+        <a class="repo-link" href="https://github.com/kittycatphoto/nex7-film-recipes" target="_blank" rel="noopener noreferrer">
+          GitHub <span aria-hidden="true">↗</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero page-shell" id="top" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> The NEX-7 collection · Vol. 01</p>
+        <h1 id="hero-title">A familiar camera.<br><em>A whole new roll.</em></h1>
+        <p class="hero-intro">Twelve considered film looks, living inside your Creative Style dial. Tune the color, make the names yours, and build an installer right here in your browser.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#recipes">Explore the collection <span aria-hidden="true">↓</span></a>
+          <a class="text-link" href="downloads/nex7-base-installer.zip" download="nex7-base-installer.zip">Download default pack <span aria-hidden="true">↗</span></a>
+        </div>
+        <dl class="hero-facts" aria-label="Project highlights">
+          <div><dt>12</dt><dd>custom looks</dd></div>
+          <div><dt>0</dt><dd>uploads or accounts</dd></div>
+          <div><dt>164</dt><dd>bytes of recipe data</dd></div>
+        </dl>
+      </div>
+
+      <div class="hero-lookbook" aria-label="Golden Cinema recipe preview">
+        <div class="hero-frame">
+          <div class="frame-topline"><span>NEX·7 / LOOK 09</span><span>1/250 · F5.6 · ISO 200</span></div>
+          <svg class="hero-landscape" viewBox="0 0 720 500" role="img" aria-label="Abstract warm mountain landscape at golden hour">
+            <defs>
+              <linearGradient id="hero-sky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#d38a65"/>
+                <stop offset="0.56" stop-color="#edbd86"/>
+                <stop offset="1" stop-color="#f4dbaf"/>
+              </linearGradient>
+              <linearGradient id="hero-water" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#bd8569"/>
+                <stop offset="1" stop-color="#694f45"/>
+              </linearGradient>
+            </defs>
+            <rect width="720" height="500" fill="url(#hero-sky)"/>
+            <circle cx="510" cy="144" r="70" fill="#ffe3aa" opacity=".92"/>
+            <path d="M0 302 112 210 181 266 286 150 401 282 494 217 612 290 720 198V500H0Z" fill="#806759" opacity=".56"/>
+            <path d="M0 346 150 259 257 335 381 238 494 332 607 254 720 325V500H0Z" fill="#4d5147" opacity=".86"/>
+            <path d="M0 381 173 333 300 371 456 309 720 367V500H0Z" fill="#303b34"/>
+            <path d="M0 407c126-29 213 12 340-5 144-20 229-47 380-7v105H0Z" fill="url(#hero-water)"/>
+            <path d="M272 441c120-19 226-20 351-1M327 464c90-12 168-12 251-1" fill="none" stroke="#edbc8b" stroke-width="3" opacity=".35"/>
+            <path d="M80 500V342m-18 39 18-51 19 51m-28-17 9-27 10 27M656 500V363m-16 34 16-47 17 47" fill="#1e2c27" stroke="#1e2c27" stroke-width="5"/>
+          </svg>
+          <div class="frame-caption">
+            <div><span class="caption-kicker">Sunset / C1</span><strong>Golden Cinema</strong></div>
+            <div class="caption-settings"><span>STD +1</span><span>6500 K</span><span>LB +1</span></div>
+          </div>
+        </div>
+        <div class="hero-note" aria-hidden="true"><span>12 looks.</span><span>One creative dial.</span></div>
+      </div>
+    </section>
+
+    <div class="page-shell">
+      <aside class="compatibility" aria-label="Compatibility warning">
+        <span class="compatibility-icon" aria-hidden="true">!</span>
+        <div><strong>Made for one very specific setup.</strong><span>Sony NEX-7 with firmware 1.03 only. Installer supports macOS with Homebrew. Other cameras, firmware, and operating systems are untested and unsupported.</span></div>
+        <a href="#install">Read before installing <span aria-hidden="true">→</span></a>
+      </aside>
+    </div>
+
+    <section class="recipes-section page-shell" id="recipes" aria-labelledby="recipes-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">01 / The collection</p>
+          <h2 id="recipes-title">Choose your kind of color.</h2>
+        </div>
+        <p>Every look starts with a proven base style, then adds precise Picture Profile and white-balance adjustments. Open any card to make it your own.</p>
+      </div>
+
+      <div class="collection-toolbar" aria-label="Recipe collection controls">
+        <div class="collection-count"><span class="status-light" aria-hidden="true"></span><strong id="enabled-count">12 of 12 looks enabled</strong><span>Standard stays neutral</span></div>
+        <div class="toolbar-actions">
+          <button class="button button-quiet" type="button" id="enable-all">Enable all</button>
+          <button class="button button-quiet" type="button" id="disable-all">Disable all</button>
+          <button class="button button-quiet" type="button" id="reset-all"><span aria-hidden="true">↺</span> Reset defaults</button>
+        </div>
+      </div>
+      <p class="validation-summary" id="validation-summary" role="status" aria-live="polite" hidden></p>
+
+      <article class="standard-card" aria-labelledby="standard-title">
+        <div class="standard-index" aria-hidden="true">00</div>
+        <div class="standard-copy">
+          <p class="card-overline">Creative Style 00 · Always available</p>
+          <h3 id="standard-title">Standard <span>untouched, by design.</span></h3>
+          <p>A clean way back to your camera’s normal color. Standard keeps its stock name, neutral Picture Profile values, and your own white-balance settings.</p>
+        </div>
+        <dl class="standard-specs">
+          <div><dt>Base</dt><dd>Standard</dd></div>
+          <div><dt>PP</dt><dd>0 / 0 / 0 / 0</dd></div>
+          <div><dt>White balance</dt><dd>Preserved</dd></div>
+        </dl>
+        <span class="neutral-badge"><span aria-hidden="true">✓</span> Neutral</span>
+      </article>
+
+      <div class="recipe-grid" id="recipe-grid" aria-live="off"></div>
+      <noscript><p class="noscript-message">JavaScript is required to edit recipes and build the custom ZIP. You can still <a href="downloads/nex7-base-installer.zip" download>download the default installer</a>.</p></noscript>
+
+      <div class="field-notes" aria-labelledby="field-notes-title">
+        <div class="field-notes-heading"><p class="eyebrow">The fine print</p><h3 id="field-notes-title">Reading the dials</h3></div>
+        <div class="field-note"><span>01</span><div><strong>Picture Profile</strong><p>Saturation runs −8…+7 and hue −7…+7. PP LB/CC each run −9…+9: LB is amber (+) / blue (−), CC is magenta (+) / green (−).</p></div></div>
+        <div class="field-note"><span>02</span><div><strong>White balance</strong><p>Choose Auto, a fixed color temperature, or Preserve to leave the camera’s WB untouched. Temperature uses Kelvin ÷ 100, so 58 means 5800 K.</p></div></div>
+        <div class="field-note"><span>03</span><div><strong>Camera labels</strong><p>English menu labels are limited to 13 UTF-8 bytes, not 13 characters. Disabled looks return to their original stock names.</p></div></div>
+      </div>
+    </section>
+
+    <section class="download-section page-shell" id="download" aria-labelledby="download-title">
+      <div class="download-panel">
+        <div class="download-copy">
+          <p class="eyebrow eyebrow-light">02 / Your custom roll</p>
+          <h2 id="download-title">Developed locally.<br>Ready for your camera.</h2>
+          <p>Your customized ZIP is assembled entirely on this device. The configurator replaces only <code>hook/nexhook-recipes.bin</code> and <code>hook/string_english.uxc</code> in the base installer.</p>
+          <div class="privacy-note"><span aria-hidden="true">⌁</span> No server, external API, account, or camera connection is used.</div>
+        </div>
+        <div class="download-action">
+          <div class="bundle-label"><span>YOUR BUNDLE</span><strong id="bundle-summary">12 film looks + neutral Standard</strong></div>
+          <button class="button button-accent button-large" type="button" id="download-custom">
+            <span class="button-icon" aria-hidden="true">↓</span><span id="download-button-label">Download custom bundle</span>
+          </button>
+          <p class="download-filename">nex7-film-recipes.zip</p>
+          <a class="default-pack-link" href="downloads/nex7-base-installer.zip" download="nex7-base-installer.zip">Or download the untouched default pack <span aria-hidden="true">↗</span></a>
+          <p class="download-status" id="download-status" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="install-section page-shell" id="install" aria-labelledby="install-title">
+      <div class="section-heading install-heading">
+        <div><p class="eyebrow">03 / From screen to camera</p><h2 id="install-title">A careful, five-step install.</h2></div>
+        <p>No firmware is flashed and the settings store is not rewritten. Read the full instructions in your extracted bundle before connecting the camera.</p>
+      </div>
+
+      <div class="install-layout">
+        <ol class="install-steps">
+          <li><span class="step-number">01</span><div><h3>Check the exact setup</h3><p>Confirm a <strong>Sony NEX-7 on firmware 1.03</strong>. Use a Mac with macOS, Homebrew, Python 3, a USB cable, and an SD card in the camera.</p></div></li>
+          <li><span class="step-number">02</span><div><h3>Unzip your bundle</h3><p>Extract the default or customized ZIP. Keep its folder structure intact, then open Terminal in the extracted directory.</p></div></li>
+          <li><span class="step-number">03</span><div><h3>Connect in Mass Storage mode</h3><p>Set <strong>USB Connection = Mass Storage</strong> on the camera. Connect USB and eject the card volume in Finder while leaving the cable attached.</p></div></li>
+          <li><span class="step-number">04</span><div><h3>Run the installer</h3><pre><code>./install.sh</code></pre><p>The script installs local dependencies, performs its isolated Stage A test, installs under <code>/setting</code>, and requests a cold boot.</p></div></li>
+          <li><span class="step-number">05</span><div><h3>Finish on the camera</h3><p>When the camera displays <strong>“OK to reset”</strong>, press OK. After the cold boot, open Creative Style and select your look.</p></div></li>
+        </ol>
+
+        <aside class="recovery-card" aria-labelledby="recovery-title">
+          <p class="eyebrow">A simple way back</p>
+          <h3 id="recovery-title">Return to stock.</h3>
+          <p>Connect in Mass Storage mode with the card ejected, then run this from the same extracted folder:</p>
+          <pre><code>./uninstall.sh</code></pre>
+          <p>The uninstaller removes the preload entry points and performs a read-only cold-boot session. Inert files left under <code>/setting</code> can remain.</p>
+          <a class="text-link" href="https://github.com/kittycatphoto/nex7-film-recipes/blob/main/uninstall.sh" target="_blank" rel="noopener noreferrer">View the stock uninstall script <span aria-hidden="true">↗</span></a>
+          <hr>
+          <p class="recovery-warning"><strong>If anything goes wrong:</strong> stop using the add-on and uninstall. Do not flash a recovery image or another firmware version.</p>
+          <a class="text-link" href="https://github.com/kittycatphoto/nex7-film-recipes/blob/main/docs/INSTALL.md" target="_blank" rel="noopener noreferrer">Full installation &amp; recovery guide <span aria-hidden="true">↗</span></a>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="page-shell footer-inner">
+      <div class="footer-brand"><span class="brand-mark brand-mark-small" aria-hidden="true"><span>N7</span></span><div><strong>Film Recipes</strong><span>An independent, unofficial project.</span></div></div>
+      <p>Use at your own risk. No warranty. Sony and NEX are trademarks of Sony Corporation.</p>
+      <a href="https://github.com/kittycatphoto/nex7-film-recipes" target="_blank" rel="noopener noreferrer">Source &amp; documentation on GitHub <span aria-hidden="true">↗</span></a>
+    </div>
+  </footer>
+</body>
+</html>

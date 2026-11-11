@@ -1,0 +1,8 @@
+.build/
+.venv/
+camera/
+firmware/
+__pycache__/
+*.pyc
+*.o
+.DS_Store

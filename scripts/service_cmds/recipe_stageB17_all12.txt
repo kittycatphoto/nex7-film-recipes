@@ -1,0 +1,12 @@
+# Stage B17: all 12 film recipes with WB and complete English menu names.
+# Run with two uploads:
+#   --put=hook/nexhook-recipe.so:/setting/nexhook-recipe-v17.so
+#   --put=hook/nexhook-recipes.bin:/setting/nexhook-recipes.bin
+chmod 644 /setting/nexhook-recipe-v17.so /setting/nexhook-recipes.bin /setting/string_english.uxc
+ls -la /setting/nexhook-recipe-v17.so /setting/nexhook-recipe-v8.so /setting/nexhook-recipes.bin /setting/string_english.uxc
+mkdir -p /setting/mode
+echo 3 > /setting/mode/dmode
+echo LD_PRELOAD=/setting/nexhook-recipe-v17.so > /setting/env.txt
+sync
+cat /setting/mode/dmode /setting/env.txt
+ls -la /setting/nexhook-recipe-v17.so /setting/nexhook-recipes.bin /setting/string_english.uxc /setting/env.txt /setting/mode/dmode

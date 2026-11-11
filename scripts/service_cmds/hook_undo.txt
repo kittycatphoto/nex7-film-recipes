@@ -1,0 +1,4 @@
+# Undo stage B: back to the stock boot (keeps nexhook.so, which is inert without env.txt)
+rm -f /setting/env.txt /setting/mode/dmode
+sync
+ls -la /setting /setting/mode
